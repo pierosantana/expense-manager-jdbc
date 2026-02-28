@@ -56,10 +56,21 @@ src/main/java/com/pierosantana/expensemanager/
 CREATE DATABASE expense_manager_db;
 ```
 
-
-2. **Ejecutar scripts (ubicados en `/database`):**
+2. **Conectarse a la base de datos:**
 ```bash
-# TODO
+psql -U tu_usuario -d expense_manager_db
+```
+
+3. **Ejecutar scripts SQL:**
+```bash
+\i database/schema.sql
+\i database/sample_data.sql
+```
+
+O desde terminal:
+```bash
+psql -U tu_usuario -d expense_manager_db -f database/schema.sql
+psql -U tu_usuario -d expense_manager_db -f database/sample_data.sql
 ```
 
 ## Instalación y Uso
@@ -78,9 +89,10 @@ cd expense-manager-jdbc
 ```
 
 2. **Configurar base de datos:**
-```bash
-# TODO
-```
+    - Crear la base de datos `expense_manager_db`
+    - Ejecutar `database/schema.sql` para crear las tablas
+    - Ejecutar `database/sample_data.sql` para cargar categorías por defecto
+    - (Opcional) Configurar tus credenciales de PostgreSQL en `config/DatabaseConnection.java`
 
 3. **Ejecutar aplicación:**
 ```bash
